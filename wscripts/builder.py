@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from . import common
-from . import cmdoption
-
 import os.path
 
 def getPackageString(
@@ -18,32 +15,32 @@ def getPackageString(
 def buildProgram(
     _context,
     _target,
-    _PACKAGE_STRING,
+    _packageString,
 ):
     _build(
         _context.program,
         _context,
         _target,
-        _PACKAGE_STRING,
+        _packageString,
     )
 
 def buildShlib(
     _context,
     _target,
-    _PACKAGE_STRING,
+    _packageString,
 ):
     _build(
         _context.shlib,
         _context,
         _target,
-        _PACKAGE_STRING,
+        _packageString,
     )
 
 def _build(
     _buildFunc,
     _context,
     _target,
-    _PACKAGE_STRING,
+    _packageString,
 ):
     sources = dict()
     libraries = set()
@@ -51,7 +48,7 @@ def _build(
 
     _setup(
         _context,
-        _PACKAGE_STRING,
+        _packageString,
         sources,
         libraries,
         useModules,
@@ -72,7 +69,7 @@ def _build(
 
 def _setup(
     _context,
-    _PACKAGE_STRING,
+    _packageString,
     _sources,
     _libraries,
     _useModules,
@@ -87,7 +84,7 @@ setup(
     _useModules,
 )
 ''' % {
-    'package' : _PACKAGE_STRING,
+    'package' : _packageString,
 }
     )
 

@@ -240,17 +240,17 @@ def _configureIncludes( _context ):
     _context.env.MY_INCLUDES = INCLUDES
 
 def _configureLibpath( _context ):
-    FG_LIBPATH = _context.options.fglibpath
+    FGPP_LIBPATH = _context.options.fgpplibpath
 
     _context.msg(
-        cmdoption.FG_LIBPATH,
-        FG_LIBPATH,
+        cmdoption.FGPP_LIBPATH,
+        FGPP_LIBPATH,
     )
 
     LIBPATH = [
         os.path.abspath( i )
         for i in [
-            FG_LIBPATH,
+            FGPP_LIBPATH,
         ]
     ]
 

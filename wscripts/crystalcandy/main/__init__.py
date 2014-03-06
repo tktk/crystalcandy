@@ -4,12 +4,12 @@ from wscripts.builder import buildProgram
 from ..builder import getPackageString
 
 MODULE_NAME = 'main'
-TARGET = 'crystalcandy'
+_TARGET = 'crystalcandy'
 
 def build( _context ):
     buildProgram(
         _context,
-        TARGET,
+        _TARGET,
         getPackageString(
             MODULE_NAME,
             _context.env.MY_MAIN_IMPL,

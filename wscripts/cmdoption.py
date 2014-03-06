@@ -7,10 +7,10 @@ from waflib import Utils
 import os.path
 
 FG_HEADERS = 'fgheaders'
-FG_LIBPATH = 'fglibpath'
 _FG_DIR = 'fg'
 
 FGPP_HEADERS = 'fgppheaders'
+FGPP_LIBPATH = 'fgpplibpath'
 _FGPP_DIR = 'fgpp'
 
 FG4CPP_HEADERS = 'fg4cppheaders'
@@ -72,11 +72,11 @@ OPTIONS = {
             common.INCLUDE_DIR,
         ),
     },
-    FG_LIBPATH : {
+    FGPP_LIBPATH : {
         TYPE : _TYPE_STRING,
         DEFAULT : os.path.join(
             '..',
-            _FG_DIR,
+            _FGPP_DIR,
             common.BUILD_DIR,
         ),
     },

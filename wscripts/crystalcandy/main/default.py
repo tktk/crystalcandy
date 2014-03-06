@@ -3,7 +3,7 @@
 from wscripts import common
 from . import MODULE_NAME
 
-IMPL_NAME = 'default'
+_IMPL_NAME = 'default'
 
 def setup(
     _context,
@@ -16,10 +16,14 @@ def setup(
             MODULE_NAME : [
                 'main.cpp',
                 {
-                    IMPL_NAME : {
+                    _IMPL_NAME : {
                         'main.cpp',
                     },
                 },
             ],
         },
+    }
+
+    _libraries |= {
+        'fgpp-strconv',
     }
