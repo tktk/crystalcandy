@@ -1,16 +1,16 @@
 ﻿#include "crystalcandy/main/main.h"
 #include "fgpp/def/common/primitives.h"
 
+#include <cstring>
+
 namespace {
-    struct ArgGenerator
+    struct Strlen
     {
-        fg::Bool operator()(
-            fg::Utf32 &                 _to
-            , const fg::StringChar *    _FROM
+        fg::Size operator()(
+            const fg::StringChar *  _FROM
         ) const
         {
-            //TODO
-            return false;
+            return std::strlen( _FROM );
         }
     };
 }
@@ -20,7 +20,7 @@ fg::Int main(
     , fg::StringChar ** _argv
 )
 {
-    return crystalcandy::main< ArgGenerator >(
+    return crystalcandy::main< Strlen >(
         _argc
         , _argv
     );

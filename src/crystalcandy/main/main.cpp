@@ -4,7 +4,7 @@
 
 namespace crystalcandy {
     fg::Int main(
-        const std::vector< fg::Utf32View > &
+        const std::vector< fg::Utf32 > &
     )
     {
         //TODO
