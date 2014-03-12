@@ -1,5 +1,5 @@
 ﻿#include "crystalcandy/main/main.h"
-#include "fgpp/def/common/primitives.h"
+#include "fgpp/common/primitives.h"
 
 #include <cstring>
 

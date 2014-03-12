@@ -1,8 +1,8 @@
 ﻿#ifndef CRYSTALCANDY_MAIN_MAIN_H
 #define CRYSTALCANDY_MAIN_MAIN_H
 
-#include "fgpp/def/common/string.h"
-#include "fgpp/def/common/primitives.h"
+#include "fgpp/common/string.h"
+#include "fgpp/common/primitives.h"
 #include "fgpp/strconv/toutf32.h"
 
 #include <vector>
