@@ -8,8 +8,10 @@
 #include <vector>
 
 namespace crystalcandy {
+    typedef std::vector< fg::Utf32 > Args;
+
     fg::Int main(
-        const std::vector< fg::Utf32 > &
+        const Args &
     );
 
     template<

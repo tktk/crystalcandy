@@ -15,6 +15,7 @@ def setup(
         common.CRYSTALCANDY : {
             MODULE_NAME : [
                 'main.cpp',
+                'args.cpp',
                 {
                     _IMPL_NAME : {
                         'main.cpp',
@@ -26,4 +27,5 @@ def setup(
 
     _libraries |= {
         'fgpp-strconv',
+        'fgpp-boot',
     }
