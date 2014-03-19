@@ -1,4 +1,5 @@
 ﻿#include "crystalcandy/main/args.h"
+#include "fgpp/boot/config.h"
 #include "fgpp/common/string.h"
 
 #include <functional>
@@ -51,6 +52,43 @@ namespace {
             return true;
         }
     };
+
+    template< typename PROC_T >
+    struct Config
+    {
+        fg::Bool operator()(
+            crystalcandy::Args::const_iterator &            _it
+            , const crystalcandy::Args::const_iterator &    _END
+            , fg::BootConfig &                              _config
+        ) const
+        {
+            ++_it;
+            if( _it == _END ) {
+                return false;
+            }
+
+            const auto &    UTF32 = *_it;
+
+            return PROC_T()(
+                _config
+                , UTF32
+            );
+        }
+    };
+
+    struct MainFile
+    {
+        fg::Bool operator()(
+            fg::BootConfig &    _config
+            , const fg::Utf32 & _MAIN_FILE
+        ) const
+        {
+            return fg::setMainFile(
+                _config
+                , _MAIN_FILE
+            );
+        }
+    };
 }
 
 namespace crystalcandy {
@@ -73,6 +111,8 @@ namespace crystalcandy {
 #define OPTION( _PROC, _VALUE ) Option< _PROC, decltype( _VALUE ) >( _VALUE )
 
             { U"--help", OPTION( Help, _help ) },
+
+            { U"--mainfile", OPTION( Config< MainFile >, _config ) },
             //TODO
 
 #undef  OPTION
