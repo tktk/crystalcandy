@@ -89,6 +89,20 @@ namespace {
             );
         }
     };
+
+    struct MainType
+    {
+        fg::Bool operator()(
+            fg::BootConfig &    _config
+            , const fg::Utf32 & _MAIN_TYPE
+        ) const
+        {
+            return fg::setMainType(
+                _config
+                , _MAIN_TYPE
+            );
+        }
+    };
 }
 
 namespace crystalcandy {
@@ -113,6 +127,7 @@ namespace crystalcandy {
             { U"--help", OPTION( Help, _help ) },
 
             { U"--mainfile", OPTION( Config< MainFile >, _config ) },
+            { U"--maintype", OPTION( Config< MainType >, _config ) },
             //TODO
 
 #undef  OPTION
