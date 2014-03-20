@@ -103,6 +103,20 @@ namespace {
             );
         }
     };
+
+    struct Main
+    {
+        fg::Bool operator()(
+            fg::BootConfig &    _config
+            , const fg::Utf32 & _MAIN
+        ) const
+        {
+            return fg::setMain(
+                _config
+                , _MAIN
+            );
+        }
+    };
 }
 
 namespace crystalcandy {
@@ -128,6 +142,7 @@ namespace crystalcandy {
 
             { U"--mainfile", OPTION( Config< MainFile >, _config ) },
             { U"--maintype", OPTION( Config< MainType >, _config ) },
+            { U"--main", OPTION( Config< Main >, _config ) },
             //TODO
 
 #undef  OPTION
