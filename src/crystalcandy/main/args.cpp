@@ -76,6 +76,20 @@ namespace {
         }
     };
 
+    struct Loader
+    {
+        fg::Bool operator()(
+            fg::BootConfig &    _config
+            , const fg::Utf32 & _LOADER
+        ) const
+        {
+            return fg::setLoader(
+                _config
+                , _LOADER
+            );
+        }
+    };
+
     struct MainFile
     {
         fg::Bool operator()(
@@ -139,6 +153,8 @@ namespace crystalcandy {
 #define OPTION( _PROC, _VALUE ) Option< _PROC, decltype( _VALUE ) >( _VALUE )
 
             { U"--help", OPTION( Help, _help ) },
+
+            { U"--loader", OPTION( Config< Loader >, _config ) },
 
             { U"--mainfile", OPTION( Config< MainFile >, _config ) },
             { U"--maintype", OPTION( Config< MainType >, _config ) },
